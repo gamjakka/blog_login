@@ -1,0 +1,14 @@
+<h1>What is on your mind ? </h1>
+<style>
+    body {background-color: rgb(253, 242, 226);}
+</style>
+
+<form method = 'POST' enctype="multipart/form-data">
+    {%csrf_token%}
+    <table>
+        {{form.as_table}}
+    </table>
+    
+    <input class= "btn btn-dark" type = "submit" value="save">
+
+</form>

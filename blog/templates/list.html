@@ -1,0 +1,33 @@
+{%load static %}
+<style>
+h1 {text-align: center;}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {background-color: rgb(253, 242, 226);}
+</style>
+<img src="{% static 'blog-banner.jpg' %}" width="100%" alt="">
+<h1>Blog On The Way </h1>
+
+<a href="{%url 'new' %}"><p style="text-align:center">I want to blog something on the way</p></a>
+
+{% for blog in blogs%}
+
+<hr>
+<a href="{%url 'detail' blog.id%}">
+<p style="text-align:center">
+{{blog.title}}
+<br>
+{{blog.pub_date}}
+<br>
+{{blog.summary}}
+<br>
+<br>
+{% if blog.image %}
+<img src="{{blog.image.url}}">
+{% endif %}
+</p>
+</a>
+{%endfor%} 
