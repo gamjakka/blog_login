@@ -13,6 +13,19 @@ body {background-color: rgb(253, 242, 226);}
 
 <a href="{%url 'new' %}"><p style="text-align:center">I want to blog something on the way</p></a>
 
+<div>
+  {% if user.is_authenticated %}
+    <h3 style="text-align: center;">HELLO, {{user.username}}</h3>
+    {{user.birthday}}
+    {{user.gender}}
+    <a href="{% url 'logout'%}"><p style="text-align:center">logout</p></a>
+  {% else %}
+
+  <a href="{% url 'login'%}"><p style="text-align:center">login</p></a>
+  <a href="{% url 'register'%}"><p style="text-align:center">register</p></a>
+  {% endif %}
+</div>
+
 {% for blog in blogs%}
 
 <hr>
